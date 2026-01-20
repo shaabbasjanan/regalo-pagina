@@ -107,17 +107,17 @@
             color: #ddd;
         }
 
-        /* --- 3. EL UNIVERSO --- */
+        /* --- 3. EL UNIVERSO (GRID EXPANDIDO A 8 ITEMS) --- */
         .universe-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 900px;
-            margin-top: 30px;
+            grid-template-columns: repeat(4, 1fr); /* 4 columnas en PC */
+            gap: 20px;
+            max-width: 1000px;
+            margin-top: 20px;
         }
         
         .planet {
-            width: 100px; height: 100px;
+            width: 90px; height: 90px; /* Un poco más pequeños para que quepan 8 */
             border-radius: 50%;
             display: flex; flex-direction: column;
             justify-content: center; align-items: center;
@@ -133,19 +133,20 @@
             border-color: var(--primary-glow);
             box-shadow: 0 0 35px var(--primary-glow);
         }
-        .planet span { font-size: 0.7rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; }
-        .planet-icon { font-size: 1.8rem; margin-bottom: 5px; filter: drop-shadow(0 0 5px white); }
+        .planet span { font-size: 0.65rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        .planet-icon { font-size: 1.6rem; margin-bottom: 5px; filter: drop-shadow(0 0 5px white); }
 
-        /* EASTER EGG FINAL: FOOTER */
+        /* FOOTER NUEVO */
         .engineer-footer {
             position: absolute;
-            bottom: 20px;
+            bottom: 15px;
             width: 100%;
             text-align: center;
             font-family: 'Playfair Display', serif;
             font-size: 0.8rem;
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.5);
             pointer-events: none;
+            text-shadow: 0 0 5px rgba(0,0,0,0.8);
         }
 
         /* --- MODALES --- */
@@ -179,6 +180,13 @@
             padding-right: 10px;
         }
         .letter-scroll p { margin-bottom: 20px; }
+        .letter-sector {
+            background: rgba(255,255,255,0.03);
+            border-left: 2px solid var(--primary-glow);
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .letter-sector strong { color: var(--primary-glow); display: block; margin-bottom: 5px; }
 
         /* Estilo Tags */
         .tags-container {
@@ -203,36 +211,36 @@
         }
         .lily-frame:hover img { transform: scale(1.1); }
 
-        /* --- AUDIO PLAYER PERSONALIZADO --- */
+        /* --- AUDIO PLAYER --- */
         .audio-player-wrapper {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-glass);
-            padding: 20px;
-            border-radius: 15px;
-            margin-top: 30px;
+            padding: 30px;
+            border-radius: 20px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
+            text-align: center;
         }
         .play-btn-custom {
-            width: 50px; height: 50px;
+            width: 70px; height: 70px;
             background: var(--primary-glow);
             border-radius: 50%;
             border: none;
             display: flex; justify-content: center; align-items: center;
             cursor: pointer;
             color: black;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             transition: 0.3s;
+            box-shadow: 0 0 20px rgba(255, 158, 207, 0.3);
         }
-        .play-btn-custom:hover { transform: scale(1.1); }
+        .play-btn-custom:hover { transform: scale(1.1); box-shadow: 0 0 40px rgba(255, 158, 207, 0.6); }
 
-        /* --- CÁPSULA DEL TIEMPO (DESEO) --- */
+        /* --- CÁPSULA DEL TIEMPO --- */
         .wish-section {
-            margin-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 30px;
             text-align: center;
+            padding: 20px 0;
         }
         .wish-input {
             width: 100%;
@@ -253,21 +261,25 @@
             background: transparent;
             border: 1px solid white;
             color: white;
-            padding: 10px 30px;
-            border-radius: 20px;
+            padding: 12px 35px;
+            border-radius: 30px;
             cursor: pointer;
             transition: 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
         }
         .send-wish-btn:hover { background: white; color: black; }
 
         /* ANIMACIONES */
         @keyframes heartbeat { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
         
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .universe-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
             .clock-container { font-size: 3.5rem; }
             h1 { font-size: 1.8rem; }
-            .engineer-footer { position: relative; margin-top: 40px; padding-bottom: 20px; }
+            .engineer-footer { position: relative; margin-top: 40px; padding-bottom: 20px; font-size: 0.7rem;}
         }
     </style>
 </head>
@@ -316,7 +328,7 @@
             
             <div class="intro-text-block">
                 <p>Cuando uno es pequeño es un poco inmaduro y tal vez no tiene la capacidad mental o sabiduría para tomar buenas decisiones... Aún así, mi yo de 15 años tomó una de las mejores decisiones que he tenido en mi vida, una de la que nunca me arrepentiré y fue haberte conocido.</p>
-                <p>De ahí nace la idea de esta página, no es una wikipedia ni es un manual para aprender de ti; más bien es una recopilación de algunas de las cosas más importantes sobre ti que recuerdo, por si algún día lo olvido o pierdo la memoria, podré volver acá y recordar esta etapa tan hermosa, pero sobre todo, a una persona tan especial.</p>
+                <p>De ahí nace la idea de esta página. No es una Wikipedia ni es un manual para aprender de ti; más bien es una recopilación de esos pequeños detalles que te hacen ser tú. Hice este rincón para que, pase el tiempo que pase, siempre tengas un lugar donde recordar lo valiosa que eres y lo mucho que significas para quienes tuvimos la suerte de conocerte de verdad.</p>
             </div>
             
             <button onclick="enterUniverse()" style="background: var(--primary-glow); border: none; padding: 15px 50px; border-radius: 30px; font-weight: bold; cursor: pointer; color: #000; font-size: 1rem; margin-top: 20px;">
@@ -349,14 +361,23 @@
                 <div class="planet-icon">💌</div>
                 <span>Bitácora</span>
             </div>
-            <div class="planet p6" onclick="openModal('modal-oraculo')">
+            <div class="planet p6" onclick="openModal('modal-audio')">
+                <div class="planet-icon">🎙️</div>
+                <span>Tu Voz</span>
+            </div>
+            <div class="planet p7" onclick="openModal('modal-deseo')">
+                <div class="planet-icon">🌠</div>
+                <span>Cápsula</span>
+            </div>
+            
+            <div class="planet p8" onclick="openModal('modal-oraculo')">
                 <div class="planet-icon">✨</div>
                 <span>Oráculo</span>
             </div>
         </div>
 
         <div class="engineer-footer">
-            "El código de esta página tiene miles de líneas, pero todas dicen lo mismo: que seas feliz, hoy y siempre."
+            Diseñado con memoria, programado con el corazón y dedicado a la niña de los ojos más lindos del universo.
         </div>
     </div>
 
@@ -365,44 +386,87 @@
             <button class="close-modal" onclick="forceClose()">×</button>
             <h2>11:11 - El Deseo</h2>
             <div class="letter-scroll">
-                <p>Una noche cualquiera me dijiste: «11:11, pide un deseo» y yo ni siquiera sabía el porqué; me sentí confundido porque no tenía idea sobre esa costumbre pero de ahí en adelante, cada vez que estábamos hablando a esa hora, siempre me recordabas el deseo.</p>
-                <p>Es tonto, pero así son las cosas que te marcan la vida; hoy en día es imposible que sean las 11:11 y yo no me acuerde de ti, como así mismo es imposible olvidar tu cumpleaños. Por eso, el día de hoy mi deseo de 11:11 lo sabrás tú, o más bien, es para ti.</p>
-                <p>El deseo del día de hoy irá dividido en diferentes sectores. Obviamente el primero es lo que más anhele todo el tiempo que estuve a tu lado y fue <strong>que estuvieras bien</strong>. Es la base de todo.</p>
-                <p>Sé que tus estudios son muy importantes para ti, así que deseo que este nuevo año de vida esté cargado de buenas noticias siempre, que seas esa gran profesional de sanidad.</p>
-                <p>También, sé que amas mucho a tu familia, así que les deseo lo mejor a todos, ojalá que entre todos logren tener un año maravilloso.</p>
-                <p>Nunca creas que no cumpliré la promesa de siempre estar a tu lado. Sí lo estoy, de lejos porque son las circunstancias del momento pero usted sabe que cuenta conmigo si lo necesita.</p>
-                <p>Quisiera tanto tener la voz de un cantante, para no solo recitar sinó cantarte.</p>
-                <p style="text-align: right; margin-top: 30px;">— Miguel</p>
-            </div>
+                <p>Una noche cualquiera me dijiste: «11:11, pide un deseo» y yo ni siquiera sabía el porqué; me sentí confundido porque no tenía idea sobre esa costumbre, pero de ahí en adelante, cada vez que estábamos hablando a esa hora, siempre me recordabas el deseo. Y es tonto, pero así son las cosas que te marcan la vida; hoy en día es imposible que sean las 11:11 y yo no me acuerde de ti, como así mismo es imposible olvidar tu cumpleaños. Por eso, el día de hoy mi deseo de 11:11 lo sabrás tú, o más bien, es para ti.</p>
+                <p>Antes de todo me gustaría ofrecerte unas disculpas, ya que no sé qué tanto querías leer esto o si te genera algún tipo de incomodidad. Sin embargo, si estás aquí es por algo.</p>
+                <p>Siguiendo con lo que íbamos, el deseo del día de hoy irá dividido en diferentes sectores:</p>
 
+                <div class="letter-sector">
+                    <strong>Tu bienestar:</strong>
+                    Es lo que más anhelé todo el tiempo que estuve a tu lado y es que estuvieras bien. Es el primero por eso y también porque es la base de todo: antes de desear cualquier cosa, debes estar bien.
+                </div>
+
+                <div class="letter-sector">
+                    <strong>Tus metas:</strong>
+                    Sé que tus estudios son muy importantes para ti, así que deseo que este nuevo año de vida esté cargado de buenas noticias siempre y que te vaya súper bien en cada cosa que aprendas.
+                </div>
+
+                <div class="letter-sector">
+                    <strong>Tu refugio:</strong>
+                    Como sé que amas mucho a tu familia, les deseo lo mejor a todos; ojalá que logren tener un año maravilloso juntos y que cada vez estén más unidos todavía.
+                </div>
+
+                <div class="letter-sector">
+                    <strong>Tu propia luz:</strong>
+                    Hay un sector para ti solita, para tu felicidad. Deseo que este año encuentres muchas razones para sonreír por tu cuenta, que disfrutes de las cosas pequeñas que te gustan y que nunca se te olvide lo mucho que vales por quien eres, más allá de lo que hagas o de quién tengas al lado.
+                </div>
+
+                <p>Nunca creas que no cumpliré la promesa de siempre estar a tu lado; sí lo estoy, quizás de lejos por las circunstancias del momento, pero usted sabe que cuenta conmigo si lo necesita.</p>
+                <p>Hoy mi deseo de las 11:11 ya se cumplió con el simple hecho de que estés leyendo esto. Ahora te toca a ti, pide todos los deseos que quieras, que yo desde acá voy a estar haciendo fuerza para que se te cumplan todos.</p>
+                <p>Quisiera tanto tener la voz de un cantante, para no solo recitar sino cantarte.</p>
+                <p>Sé que una persona no se separa de su pareja esperando que esta le haga una página para dejarle un mensaje todos los días, pero esto no se trata de eso. Aquí hay un apartado llamado «mensaje del día» y son cositas de apoyo emocional o frases que le pueden dar un impulso a un día pesado. No espero que las leas todas ni mucho menos; realmente lo que espero es que si un día no estás del todo bien emocional, mental o físicamente, puedas venir a buscar un apoyo. Sabes que mi objetivo siempre fue que estuvieras bien.</p>
+                <p>Disfruta mucho de tus días, sonríe hasta que te duela la cara y déjate consentir por todos los que te quieren, que hoy el mundo celebra que existes. Que este sea solo el comienzo de un año increíble para ti, porque personas con un corazón como el tuyo merecen que la vida les devuelva solo cosas bonitas.</p>
+                <p style="text-align: right; font-weight: bold; margin-top: 30px;">Feliz cumpleaños, de todo corazón.</p>
+            </div>
+            <button onclick="finishLetter()" style="width: 100%; padding: 15px; margin-top: 20px; background: transparent; border: 1px solid var(--primary-glow); color: white; border-radius: 10px; cursor: pointer;">
+                Seguir Explorando
+            </button>
+        </div>
+    </div>
+
+    <div id="modal-audio" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content">
+            <button class="close-modal" onclick="forceClose()">×</button>
+            <h2>Un Mensaje de Voz</h2>
+            <p style="text-align: center;">"Solo quería que escucharas de mi propia voz..."</p>
+            
             <div class="audio-player-wrapper">
                 <button class="play-btn-custom" onclick="toggleVoiceNote()">▶</button>
                 <div>
-                    <span style="font-size: 0.9rem; font-weight: bold; color: #fff;">Nota de voz.mp3</span><br>
-                    <span style="font-size: 0.7rem; color: #aaa;">"Solo quería que escucharas..."</span>
+                    <span style="font-size: 1.1rem; font-weight: bold; color: #fff;">Nota de voz.mp3</span><br>
+                    <span style="font-size: 0.8rem; color: #aaa;">Miguel</span>
                 </div>
                 <audio id="miguel-voice">
                     <source src="nota_voz.mp3" type="audio/mpeg">
                 </audio>
             </div>
+        </div>
+    </div>
 
+    <div id="modal-deseo" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content">
+            <button class="close-modal" onclick="forceClose()">×</button>
+            <h2>Cápsula del Tiempo</h2>
+            
             <div class="wish-section">
-                <h3 style="font-family: 'Cinzel', serif; font-size: 1rem; color: var(--gold-accent);">Cápsula del Tiempo</h3>
-                <p style="font-size: 0.85rem; margin-bottom: 15px;">Pide tu deseo de este año aquí. El universo (y yo) nos encargaremos de hacer fuerza.</p>
+                <p style="font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6;">
+                    Pide todos los deseos que quieras. Yo desde aquí haré fuerza para que se cumplan.<br>
+                    Escribe tu deseo de cumpleaños:
+                </p>
                 
                 <form id="wishForm" action="https://formsubmit.co/7076551@gmail.com" method="POST">
                     <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="http://localhost:8000/thanks.html"> <input type="text" name="deseo" class="wish-input" placeholder="Escribe tu deseo aquí..." required autocomplete="off">
+                    <input type="hidden" name="_subject" value="Nuevo Deseo de Salomé">
+                    <input type="hidden" name="_next" value="http://localhost:8000/thanks.html">
+                    
+                    <input type="text" name="deseo" class="wish-input" placeholder="Mi deseo es..." required autocomplete="off">
+                    
                     <button type="submit" class="send-wish-btn">Enviar al Universo</button>
                 </form>
-                <p id="wish-success" style="display:none; color: var(--primary-glow); margin-top: 10px; font-style: italic;">
-                    Deseo guardado. Yo me encargaré de hacer fuerza desde aquí para que se cumpla.
+                
+                <p id="wish-success" style="display:none; color: var(--primary-glow); margin-top: 20px; font-style: italic; border: 1px solid var(--primary-glow); padding: 15px; border-radius: 10px;">
+                    ✨ Deseo guardado en las estrellas.
                 </p>
             </div>
-
-            <button onclick="finishLetter()" style="width: 100%; padding: 15px; margin-top: 30px; background: transparent; border: 1px solid var(--primary-glow); color: white; border-radius: 10px; cursor: pointer;">
-                Continuar al Universo &rarr;
-            </button>
         </div>
     </div>
 
@@ -504,7 +568,7 @@
             if (now >= targetDate) {
                 unlocked = true;
                 // EASTER EGG 1: MODO 11:11 (Oscurecer y brillar)
-                document.getElementById('prelude-screen').style.background = "radial-gradient(circle at center, #2a0a18, #000)"; // Fondo rojizo oscuro
+                document.getElementById('prelude-screen').style.background = "radial-gradient(circle at center, #2a0a18, #000)"; 
                 document.getElementById('clock-wrapper').classList.add('hidden');
                 const unlockContainer = document.getElementById('unlock-container');
                 unlockContainer.classList.remove('hidden');
@@ -527,15 +591,13 @@
                 const intro = document.getElementById('intro-screen');
                 intro.classList.remove('hidden'); 
                 intro.style.opacity = 1;
+                // ABRIR CARTA AUTOMÁTICAMENTE
                 openModal('modal-carta'); 
             }, 800);
         }
 
         function finishLetter() {
             document.querySelector('#modal-carta').classList.remove('active');
-            // Si la nota de voz está sonando, pausarla
-            const voice = document.getElementById('miguel-voice');
-            voice.pause();
         }
 
         function enterUniverse() {
@@ -555,10 +617,10 @@
             
             if (audio.paused) {
                 audio.play();
-                btn.innerText = "❚❚"; // Icono pausa
+                btn.innerText = "❚❚"; 
             } else {
                 audio.pause();
-                btn.innerText = "▶"; // Icono play
+                btn.innerText = "▶"; 
             }
             
             audio.onended = function() {
@@ -569,11 +631,10 @@
         // --- LÓGICA DEL FORMULARIO DE DESEO (AJAX) ---
         const wishForm = document.getElementById('wishForm');
         wishForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Evita que la página se recargue
+            e.preventDefault(); 
             
             const formData = new FormData(wishForm);
             
-            // Envío asíncrono a FormSubmit
             fetch(wishForm.action, {
                 method: 'POST',
                 body: formData,
@@ -582,7 +643,6 @@
                 }
             })
             .then(response => {
-                // Ocultar form y mostrar mensaje de éxito
                 wishForm.style.display = 'none';
                 document.getElementById('wish-success').style.display = 'block';
             })
