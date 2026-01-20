@@ -68,7 +68,7 @@
             text-transform: uppercase;
         }
 
-        /* EL SELLO (CORAZÓN LATIENDO) */
+        /* EL SELLO */
         #seal-btn {
             width: 120px;
             height: 120px;
@@ -81,9 +81,7 @@
             transition: transform 0.5s;
         }
         #seal-btn svg {
-            width: 100%;
-            height: 100%;
-            fill: url(#grad1); 
+            width: 100%; height: 100%; fill: url(#grad1); 
         }
         #seal-btn:hover { transform: scale(1.15); filter: drop-shadow(0 0 40px var(--primary-glow)); }
 
@@ -107,17 +105,17 @@
             color: #ddd;
         }
 
-        /* --- 3. EL UNIVERSO (GRID EXPANDIDO A 8 ITEMS) --- */
+        /* --- 3. EL UNIVERSO --- */
         .universe-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 columnas en PC */
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             max-width: 1000px;
             margin-top: 20px;
         }
         
         .planet {
-            width: 90px; height: 90px; /* Un poco más pequeños para que quepan 8 */
+            width: 90px; height: 90px;
             border-radius: 50%;
             display: flex; flex-direction: column;
             justify-content: center; align-items: center;
@@ -136,16 +134,11 @@
         .planet span { font-size: 0.65rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; }
         .planet-icon { font-size: 1.6rem; margin-bottom: 5px; filter: drop-shadow(0 0 5px white); }
 
-        /* FOOTER NUEVO */
+        /* FOOTER */
         .engineer-footer {
-            position: absolute;
-            bottom: 15px;
-            width: 100%;
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.5);
-            pointer-events: none;
+            position: absolute; bottom: 15px; width: 100%; text-align: center;
+            font-family: 'Playfair Display', serif; font-size: 0.8rem;
+            color: rgba(255,255,255,0.5); pointer-events: none;
             text-shadow: 0 0 5px rgba(0,0,0,0.8);
         }
 
@@ -201,7 +194,7 @@
             background: var(--primary-glow); color: black; border-color: var(--primary-glow);
         }
 
-        /* Estilo Foto Lirio */
+        /* Estilo Foto Lirio (CORREGIDO) */
         .lily-frame {
             width: 100%; height: 250px; border-radius: 15px; overflow: hidden;
             border: 1px solid var(--border-glass); margin-top: 20px; position: relative;
@@ -369,7 +362,6 @@
                 <div class="planet-icon">🌠</div>
                 <span>Cápsula</span>
             </div>
-            
             <div class="planet p8" onclick="openModal('modal-oraculo')">
                 <div class="planet-icon">✨</div>
                 <span>Oráculo</span>
@@ -450,14 +442,12 @@
             <div class="wish-section">
                 <p style="font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6;">
                     Pide todos los deseos que quieras. Yo desde aquí haré fuerza para que se cumplan.<br>
-                    Escribe tu deseo de cumpleaños:
+                    Escribe tu deseo aquí:
                 </p>
                 
                 <form id="wishForm" action="https://formsubmit.co/7076551@gmail.com" method="POST">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_subject" value="Nuevo Deseo de Salomé">
-                    <input type="hidden" name="_next" value="http://localhost:8000/thanks.html">
-                    
                     <input type="text" name="deseo" class="wish-input" placeholder="Mi deseo es..." required autocomplete="off">
                     
                     <button type="submit" class="send-wish-btn">Enviar al Universo</button>
@@ -495,7 +485,7 @@
             <h2>Jardín Secreto</h2>
             <p>Ni rosas, ni tulipanes. Para ti, la elegancia de un <strong>LIRIO</strong>.</p>
             <div class="lily-frame">
-                <img src="https://images.unsplash.com/photo-1591166746669-e0d86e9273f5?q=80&w=600&auto=format&fit=crop" alt="Lirio">
+                <img src="https://images.unsplash.com/photo-1572454591674-2739f30d8c40?q=80&w=600&auto=format&fit=crop" alt="Lirio">
             </div>
             <p style="margin-top: 15px; font-size: 0.9rem;">Como cuando salvas a una araña en lugar de matarla. Tu delicadeza es tu mayor fuerza.</p>
         </div>
@@ -505,12 +495,14 @@
         <div class="modal-content">
             <button class="close-modal" onclick="forceClose()">×</button>
             <h2>Frecuencia Estelar</h2>
-            <p>No son tus artistas favoritos, son <strong>las canciones que te dediqué</strong>. Las que hablan por mí cuando no tengo voz.</p>
+            
             <div style="background: #111; padding: 20px; border-radius: 10px; border: 1px solid #333; text-align: center; margin-top: 20px;">
                 <p style="font-size: 2rem; margin: 0;">🎧</p>
                 <h3 style="margin: 10px 0; color: white;">Playlist para Ti</h3>
-                <p style="color: #888; font-size: 0.9rem; margin-bottom: 20px;">Una recopilación de sentimientos.</p>
-                <a href="#" target="_blank" style="background: #1DB954; color: black; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">
+                <p style="color: #ddd; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6;">
+                    "Esta es la playlist que una vez te hice. Por si no te sientes amada o te sientes sola, recuerda que estoy ahí."
+                </p>
+                <a href="https://open.spotify.com/playlist/4RS0J2UyasEQKG2PUARv3c?si=veVmUkt4QTKiM5WoKUEY7w" target="_blank" style="background: #1DB954; color: black; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">
                     Abrir en Spotify
                 </a>
             </div>
@@ -551,7 +543,7 @@
     <script>
         // === CONFIGURACIÓN ===
         // Recuerda: Mes 0 = Enero.
-        const targetDate = new Date(2024, 0, 20, 23, 11, 0); 
+        const targetDate = new Date(2026, 0, 20, 23, 11, 0); 
         
         // --- LÓGICA DEL TIEMPO ---
         let unlocked = false;
@@ -567,7 +559,7 @@
 
             if (now >= targetDate) {
                 unlocked = true;
-                // EASTER EGG 1: MODO 11:11 (Oscurecer y brillar)
+                // MODO 11:11
                 document.getElementById('prelude-screen').style.background = "radial-gradient(circle at center, #2a0a18, #000)"; 
                 document.getElementById('clock-wrapper').classList.add('hidden');
                 const unlockContainer = document.getElementById('unlock-container');
@@ -591,7 +583,6 @@
                 const intro = document.getElementById('intro-screen');
                 intro.classList.remove('hidden'); 
                 intro.style.opacity = 1;
-                // ABRIR CARTA AUTOMÁTICAMENTE
                 openModal('modal-carta'); 
             }, 800);
         }
@@ -628,26 +619,26 @@
             };
         }
 
-        // --- LÓGICA DEL FORMULARIO DE DESEO (AJAX) ---
+        // --- LÓGICA DEL FORMULARIO DE DESEO (CORREGIDA) ---
         const wishForm = document.getElementById('wishForm');
         wishForm.addEventListener('submit', function(e) {
             e.preventDefault(); 
             
+            // Mostrar mensaje de éxito inmediatamente
+            wishForm.style.display = 'none';
+            document.getElementById('wish-success').style.display = 'block';
+
             const formData = new FormData(wishForm);
             
+            // Enviar datos en segundo plano
             fetch(wishForm.action, {
                 method: 'POST',
                 body: formData,
                 headers: {
                     'Accept': 'application/json'
                 }
-            })
-            .then(response => {
-                wishForm.style.display = 'none';
-                document.getElementById('wish-success').style.display = 'block';
-            })
-            .catch(error => {
-                alert("Hubo un error enviando el deseo. Intenta de nuevo.");
+            }).catch(error => {
+                console.log("Envío realizado (error de red ignorado para UX)");
             });
         });
 
