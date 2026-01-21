@@ -176,8 +176,13 @@
         .details-list li { margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
         .details-list strong { color: var(--primary-glow); display: block; margin-bottom: 5px; font-size: 1.1rem; }
 
-        /* Estilo Galaxia Pro (Categorías) */
-        .galaxy-categories { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+        /* Estilo Galaxia (VERTICAL) */
+        .galaxy-categories { 
+            display: flex; 
+            flex-direction: column; /* AQUÍ ESTÁ EL CAMBIO: UNO DEBAJO DEL OTRO */
+            gap: 20px; 
+            margin-top: 20px; 
+        }
         .galaxy-card {
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.1);
@@ -228,7 +233,6 @@
             .clock-container { font-size: 3.5rem; }
             h1 { font-size: 1.8rem; }
             .planet { width: 80px; height: 80px; }
-            .galaxy-categories { grid-template-columns: 1fr; }
             .engineer-footer { position: relative; margin-top: 40px; padding-bottom: 20px; font-size: 0.7rem;}
         }
     </style>
@@ -384,7 +388,7 @@
             <div style="display: flex; gap: 20px; margin-top: 20px; text-align: center;">
                 <div style="flex: 1;">
                     <span style="font-size: 2rem;">✨</span>
-                    <p style="font-size: 0.9rem;"><strong>Skincare</strong><br>Limpiador en aceite & Rutina sagrada.</p>
+                    <p style="font-size: 0.9rem;"><strong>Skincare</strong><br>Madagascar Centella & Rutina sagrada.</p>
                 </div>
                 <div style="flex: 1;">
                     <span style="font-size: 2rem;">💆‍♀️</span>
@@ -512,7 +516,7 @@
                 <div class="galaxy-card">
                     <h3>💅 Estética & Cuidado</h3>
                     <ul>
-                        <li><strong>Skincare:</strong> Aceite + Agua Micelar en aceite.</li>
+                        <li><strong>Skincare:</strong> Madagascar Centella (Aceite) & Agua Micelar.</li>
                         <li><strong>Pelo:</strong> Gorrito de Satín (Sagrado).</li>
                         <li><strong>Accesorios:</strong> Oro > Plata (Siempre dorado).</li>
                         <li><strong>Calzado:</strong> Tacones (Futuro clóset gigante).</li>
@@ -521,7 +525,7 @@
                     </ul>
                 </div>
 
-                <div class="galaxy-card" style="grid-column: span 2;">
+                <div class="galaxy-card">
                     <h3>🪐 El Mundo de Salomé</h3>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                         <ul>
