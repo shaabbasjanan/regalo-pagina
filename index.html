@@ -43,7 +43,7 @@
         .hidden { display: none !important; opacity: 0; }
 
         /* --- TIPOGRAFÍA --- */
-        h1, h2, h3 { font-family: 'Cinzel', serif; letter-spacing: 2px; text-transform: uppercase; }
+        h1, h2 { font-family: 'Cinzel', serif; letter-spacing: 3px; text-transform: uppercase; }
         .serif-text { font-family: 'Playfair Display', serif; font-style: italic; }
         
         /* --- 1. PRELUDIO (RELOJ) --- */
@@ -106,17 +106,17 @@
             color: #ddd;
         }
 
-        /* --- 3. EL UNIVERSO (GRID 3x3 = 9 ITEMS) --- */
+        /* --- 3. EL UNIVERSO (3x3 GRID) --- */
         .universe-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 columnas en PC para simetría */
-            gap: 25px;
-            max-width: 900px;
+            grid-template-columns: repeat(3, 1fr); /* 3 columnas para 9 items */
+            gap: 20px;
+            max-width: 800px;
             margin-top: 20px;
         }
         
         .planet {
-            width: 95px; height: 95px;
+            width: 90px; height: 90px;
             border-radius: 50%;
             display: flex; flex-direction: column;
             justify-content: center; align-items: center;
@@ -137,7 +137,7 @@
 
         /* FOOTER */
         .engineer-footer {
-            position: absolute; bottom: 15px; width: 100%; text-align: center;
+            position: absolute; bottom: 10px; width: 100%; text-align: center;
             font-family: 'Playfair Display', serif; font-size: 0.8rem;
             color: rgba(255,255,255,0.5); pointer-events: none;
             text-shadow: 0 0 5px rgba(0,0,0,0.8);
@@ -155,7 +155,7 @@
 
         .modal-content {
             background: linear-gradient(145deg, #151515, #0a0a0a);
-            width: 90%; max-width: 650px; max-height: 85vh;
+            width: 90%; max-width: 600px; max-height: 85vh;
             overflow-y: auto; padding: 40px 30px;
             border-radius: 20px;
             border: 1px solid var(--border-glass);
@@ -177,39 +177,40 @@
         .letter-sector {
             background: rgba(255,255,255,0.03);
             border-left: 2px solid var(--primary-glow);
-            padding: 15px; margin: 20px 0;
+            padding: 15px;
+            margin: 20px 0;
         }
         .letter-sector strong { color: var(--primary-glow); display: block; margin-bottom: 5px; }
 
-        /* NUEVO ESTILO: CATEGORÍAS GALAXIA */
-        .galaxy-category {
-            margin-bottom: 25px;
+        /* Estilo Mañas (Detalles) */
+        .details-list {
+            list-style: none;
+            padding: 0;
+        }
+        .details-list li {
+            margin-bottom: 20px;
             border-bottom: 1px solid rgba(255,255,255,0.1);
             padding-bottom: 15px;
         }
-        .galaxy-category h3 {
-            color: var(--primary-glow); font-size: 1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;
-        }
-        .galaxy-items {
-            display: flex; flex-wrap: wrap; gap: 8px;
-        }
-        .galaxy-tag {
-            background: rgba(255,255,255,0.05); padding: 5px 12px; border-radius: 15px; font-size: 0.85rem; color: #ccc; border: 1px solid rgba(255,255,255,0.1);
+        .details-list strong {
+            color: var(--primary-glow);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
         }
 
-        /* NUEVO ESTILO: GUÍA (CARDS) */
-        .guide-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 15px;
+        /* Estilo Tags */
+        .tags-container {
+            display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px;
         }
-        .guide-card {
-            background: rgba(255,255,255,0.05);
-            padding: 15px; border-radius: 10px;
-            border: 1px solid rgba(255, 158, 207, 0.2);
-            transition: 0.3s;
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; color: #ddd; transition: 0.3s;
         }
-        .guide-card:hover { background: rgba(255, 158, 207, 0.05); border-color: var(--primary-glow); }
-        .guide-card h4 { color: var(--gold-accent); margin: 0 0 10px 0; font-size: 0.9rem; font-family: 'Montserrat', sans-serif; font-weight: bold; text-transform: uppercase; }
-        .guide-card p { font-size: 0.85rem; margin: 0; line-height: 1.5; color: #ddd; }
+        .tag:hover {
+            background: var(--primary-glow); color: black; border-color: var(--primary-glow);
+        }
 
         /* Estilo Foto Lirio */
         .lily-frame {
@@ -249,17 +250,36 @@
         .play-btn-custom:hover { transform: scale(1.1); box-shadow: 0 0 40px rgba(255, 158, 207, 0.6); }
 
         /* --- CÁPSULA DEL TIEMPO --- */
-        .wish-section { text-align: center; padding: 20px 0; }
+        .wish-section {
+            text-align: center;
+            padding: 20px 0;
+        }
         .wish-input {
-            width: 100%; background: transparent; border: none; border-bottom: 2px solid var(--primary-glow);
-            color: white; padding: 15px; font-size: 1.1rem; font-family: 'Playfair Display', serif;
-            margin-bottom: 20px; text-align: center; outline: none;
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--primary-glow);
+            color: white;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+            text-align: center;
+            outline: none;
         }
         .wish-input::placeholder { color: rgba(255,255,255,0.3); }
         
         .send-wish-btn {
-            background: transparent; border: 1px solid white; color: white; padding: 12px 35px;
-            border-radius: 30px; cursor: pointer; transition: 0.3s; font-weight: bold; text-transform: uppercase; font-size: 0.8rem;
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 12px 35px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
         }
         .send-wish-btn:hover { background: white; color: black; }
 
@@ -268,12 +288,10 @@
         
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .universe-grid { grid-template-columns: repeat(3, 1fr); gap: 15px; } /* Mantiene 3 col en móvil si caben, sino ajustamos */
+            .universe-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
             .clock-container { font-size: 3.5rem; }
             h1 { font-size: 1.8rem; }
-            .guide-grid { grid-template-columns: 1fr; } /* Cartas una debajo de otra en cel */
-            .universe-grid { grid-template-columns: repeat(3, 1fr); } 
-            .planet { width: 80px; height: 80px; }
+            .engineer-footer { position: relative; margin-top: 40px; padding-bottom: 20px; font-size: 0.7rem;}
         }
     </style>
 </head>
@@ -347,7 +365,6 @@
                 <div class="planet-icon">🎵</div>
                 <span>Frecuencia</span>
             </div>
-            
             <div class="planet p4" onclick="openModal('modal-gustos')">
                 <div class="planet-icon">🪐</div>
                 <span>Galaxia</span>
@@ -360,18 +377,17 @@
                 <div class="planet-icon">🎙️</div>
                 <span>Tu Voz</span>
             </div>
-
             <div class="planet p7" onclick="openModal('modal-deseo')">
                 <div class="planet-icon">🌠</div>
                 <span>Cápsula</span>
             </div>
+            <div class="planet p9" onclick="openModal('modal-manas')">
+                <div class="planet-icon">🧩</div>
+                <span>Tus Mañas</span>
+            </div>
             <div class="planet p8" onclick="openModal('modal-oraculo')">
                 <div class="planet-icon">✨</div>
                 <span>Oráculo</span>
-            </div>
-            <div class="planet p9" onclick="openModal('modal-guia')">
-                <div class="planet-icon">👑</div>
-                <span>Manual</span>
             </div>
         </div>
 
@@ -427,6 +443,7 @@
             <button class="close-modal" onclick="forceClose()">×</button>
             <h2>Un Mensaje de Voz</h2>
             <p style="text-align: center;">"Solo quería que escucharas de mi propia voz..."</p>
+            
             <div class="audio-player-wrapper">
                 <button class="play-btn-custom" onclick="toggleVoiceNote()">▶</button>
                 <div>
@@ -444,17 +461,22 @@
         <div class="modal-content">
             <button class="close-modal" onclick="forceClose()">×</button>
             <h2>Cápsula del Tiempo</h2>
+            
             <div class="wish-section">
                 <p style="font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6;">
                     Pide todos los deseos que quieras. Yo desde aquí haré fuerza para que se cumplan.<br>
                     Escribe tu deseo aquí:
                 </p>
+                
                 <form id="wishForm" action="https://formsubmit.co/7076551@gmail.com" method="POST">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_subject" value="Nuevo Deseo de Salomé">
+                    
                     <input type="text" name="deseo" class="wish-input" placeholder="Mi deseo es..." required autocomplete="off">
+                    
                     <button type="submit" class="send-wish-btn">Enviar al Universo</button>
                 </form>
+                
                 <p id="wish-success" style="display:none; color: var(--primary-glow); margin-top: 20px; font-style: italic; border: 1px solid var(--primary-glow); padding: 15px; border-radius: 10px; animation: heartbeat 1s;">
                     ✨ ¡Deseo enviado! Puedes pedir otro si quieres.
                 </p>
@@ -470,98 +492,67 @@
             <div class="lily-frame">
                 <img src="lirios.jpg" alt="Lirios" onerror="this.src='https://images.unsplash.com/photo-1572454591674-2739f30d8c40?q=80'">
             </div>
-            <p style="margin-top: 15px; font-size: 0.9rem;">Como cuando salvas a una araña en lugar de matarla. Tu delicadeza es tu mayor fuerza.</p>
+            <p style="margin-top: 15px; font-size: 0.9rem;">Tu delicadeza es tu mayor fuerza.</p>
+        </div>
+    </div>
+
+    <div id="modal-manas" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content">
+            <button class="close-modal" onclick="forceClose()">×</button>
+            <h2>Tus Pequeños Detalles</h2>
+            <p style="margin-bottom: 20px; opacity: 0.8;">"La mayoría se fija en lo obvio, yo me quedé con esto:"</p>
+            
+            <ul class="details-list">
+                <li>
+                    <strong>El mechoncito de pelo</strong>
+                    Cuando estás concentrada o nerviosa, te pones el pelo entre la boca y la nariz. Un gesto auténtico de tu niñez.
+                </li>
+                <li>
+                    <strong>Pasarela infinita</strong>
+                    No caminas, desfilas. Tienes ese porte de modelo natural, así vayas a la esquina.
+                </li>
+                <li>
+                    <strong>El ritual de la cama</strong>
+                    Nadie tiende la cama mejor que tú. Es sagrado y te queda perfecto, como de hotel.
+                </li>
+                <li>
+                    <strong>Tu señal de frío</strong>
+                    No necesito preguntar; si tu nariz está fría, necesitas tres cobijas urgente.
+                </li>
+                <li>
+                    <strong>Almuerzo con Auron</strong>
+                    Tu momento sagrado de desconexión: comer viendo un video de AuronPlay.
+                </li>
+                <li>
+                    <strong>La salvadora de bichos</strong>
+                    Mientras otros gritan, tú tomas la araña con cuidado y la llevas a un lugar seguro. Eso dice mucho de tu corazón.
+                </li>
+                <li>
+                    <strong>El secreto de la seda dental</strong>
+                    Sé que odias pasarla (especialmente con brackets), pero es un secreto que guardo con cariño.
+                </li>
+            </ul>
         </div>
     </div>
 
     <div id="modal-gustos" class="modal-overlay" onclick="closeModal(event)">
-        <div class="modal-content">
+        <div class="modal-content" style="text-align: center;">
             <button class="close-modal" onclick="forceClose()">×</button>
-            <h2>Galaxia de Detalles</h2>
-            <p style="margin-bottom: 20px; font-style:italic; opacity:0.8;">No es una lista, son las coordenadas de tu mundo.</p>
-
-            <div class="galaxy-category">
-                <h3>🍫 Categoría: Paladar Real</h3>
-                <div class="galaxy-items">
-                    <span class="galaxy-tag">Kinder (El único que cuenta)</span>
-                    <span class="galaxy-tag">Pasta Carbonara</span>
-                    <span class="galaxy-tag">Pancakes</span>
-                    <span class="galaxy-tag">Helado de Menta/Choco (Bogotá)</span>
-                    <span class="galaxy-tag">Helado de Maracuyá</span>
-                    <span class="galaxy-tag">Takis Fuego</span>
-                    <span class="galaxy-tag">Detodito Rojo</span>
-                    <span class="galaxy-tag">Red Velvet</span>
-                    <span class="galaxy-tag">Mango (Prep. especial)</span>
-                    <span class="galaxy-tag">Bubble Tea & Tés</span>
-                    <span class="galaxy-tag">Gomitas</span>
-                </div>
-            </div>
-
-            <div class="galaxy-category">
-                <h3>💅 Categoría: Estética & Cuidado</h3>
-                <div class="galaxy-items">
-                    <span class="galaxy-tag">Skincare Sagrado</span>
-                    <span class="galaxy-tag">Limpiador en Aceite</span>
-                    <span class="galaxy-tag">Gorrito de Satín</span>
-                    <span class="galaxy-tag">Lirios</span>
-                    <span class="galaxy-tag">Accesorios Dorados (Oro)</span>
-                    <span class="galaxy-tag">Tacones</span>
-                    <span class="galaxy-tag">Cuidado de Ojos & Pelo</span>
-                    <span class="galaxy-tag">Aretes Antialérgicos</span>
-                </div>
-            </div>
-
-            <div class="galaxy-category" style="border-bottom: none;">
-                <h3>🌎 Categoría: El Mundo de Salomé</h3>
-                <div class="galaxy-items">
-                    <span class="galaxy-tag">Motos > Carros</span>
-                    <span class="galaxy-tag">Vivir en Londres</span>
-                    <span class="galaxy-tag">Visitar París</span>
-                    <span class="galaxy-tag">Snoopy</span>
-                    <span class="galaxy-tag">Rapunzel</span>
-                    <span class="galaxy-tag">Dormir (Mucho)</span>
-                    <span class="galaxy-tag">AuronPlay (Comiendo)</span>
-                    <span class="galaxy-tag">Among Us</span>
-                    <span class="galaxy-tag">Gatos (Quiere un Zoo)</span>
-                    <span class="galaxy-tag">Libros de Romance</span>
-                    <span class="galaxy-tag">Número 8</span>
-                    <span class="galaxy-tag">Tomar Fotos</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-guia" class="modal-overlay" onclick="closeModal(event)">
-        <div class="modal-content">
-            <button class="close-modal" onclick="forceClose()">×</button>
-            <h2>Guía para Cuidar a una Reina</h2>
-            <p style="margin-bottom: 25px; opacity: 0.8;">Apuntes secretos que aprendí observándote.</p>
-
-            <div class="guide-grid">
-                <div class="guide-card">
-                    <h4>❄️ Si tiene frío...</h4>
-                    <p>Revisa su nariz. Si está fría, necesita <strong>tres cobijas</strong> inmediatamente.</p>
-                </div>
-                <div class="guide-card">
-                    <h4>🥀 En su periodo...</h4>
-                    <p>Nada que unas pastillas, chocolates y una mano cálida en el vientre no solucionen.</p>
-                </div>
-                <div class="guide-card">
-                    <h4>🕷️ La Araña...</h4>
-                    <p>No entres en pánico y no la mates. Llámala a ella, ella la salvará.</p>
-                </div>
-                <div class="guide-card">
-                    <h4>🤔 La Decisión...</h4>
-                    <p>No le preguntes qué hacer. Toma la iniciativa y llévala al mar.</p>
-                </div>
-                <div class="guide-card">
-                    <h4>🤗 El Abrazo...</h4>
-                    <p>Hazlo siempre que puedas. Es como darle droga a su alma.</p>
-                </div>
-                <div class="guide-card">
-                    <h4>🚗 Caballerosidad...</h4>
-                    <p>Ábrele la puerta, ayúdale con el peso, arrópala. Se merece todo lo bonito.</p>
-                </div>
+            <h2>Galaxia de Gustos</h2>
+            <p style="margin-bottom: 20px;">Pequeñas cosas que te hacen ser tú.</p>
+            <div class="tags-container">
+                <span class="tag">🍝 Pasta Carbonara</span>
+                <span class="tag">🥞 Pancakes</span>
+                <span class="tag">🍓 Fresa</span>
+                <span class="tag">🌶️ Takis Fuego</span>
+                <span class="tag">🍫 Kinder</span>
+                <span class="tag">🍦 Helado</span>
+                <span class="tag">💤 Dormir (Mucho)</span>
+                <span class="tag">🐶 Snoopy</span>
+                <span class="tag">👸 Rapunzel</span>
+                <span class="tag">🐱 Gatos</span>
+                <span class="tag">🇬🇧 Londres</span>
+                <span class="tag">🎮 Among Us</span>
             </div>
         </div>
     </div>
@@ -614,7 +605,7 @@
 
     <script>
         // === CONFIGURACIÓN ===
-        // Recuerda: Mes 0 = Enero.
+        // HOY 20 DE ENERO A LAS 11:11 PM
         const targetDate = new Date(2024, 0, 20, 23, 11, 0); 
         
         // --- LÓGICA DEL TIEMPO ---
@@ -631,6 +622,7 @@
 
             if (now >= targetDate) {
                 unlocked = true;
+                // MODO 11:11
                 document.getElementById('prelude-screen').style.background = "radial-gradient(circle at center, #2a0a18, #000)"; 
                 document.getElementById('clock-wrapper').classList.add('hidden');
                 const unlockContainer = document.getElementById('unlock-container');
@@ -690,18 +682,26 @@
             };
         }
 
-        // --- LÓGICA DEL FORMULARIO DE DESEO ---
+        // --- LÓGICA DEL FORMULARIO DE DESEO (MÚLTIPLES ENVÍOS) ---
         const wishForm = document.getElementById('wishForm');
         wishForm.addEventListener('submit', function(e) {
             e.preventDefault(); 
+            
             const formData = new FormData(wishForm);
             fetch(wishForm.action, {
-                method: 'POST', body: formData, headers: { 'Accept': 'application/json' }
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
             }).catch(err => console.log("Enviado"));
+
             const successMsg = document.getElementById('wish-success');
             successMsg.style.display = 'block';
+
             wishForm.reset();
-            setTimeout(() => { successMsg.style.display = 'none'; }, 4000);
+
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 4000);
         });
 
         // --- ORÁCULO ---
