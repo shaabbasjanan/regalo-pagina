@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" prefix="og: https://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Universo de Salomé</title>
+    <title>El Universo de Salomé 🪐</title>
+
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/869/869823.png">
+
+    <meta property="og:title" content="Para Salomé: Tu Universo 🪐✨" />
+    <meta property="og:description" content="Un pequeño rincón digital creado con el corazón para celebrar tu existencia. 11:11" />
+    <meta property="og:image" content="https://i.pinimg.com/originals/d5/c9/a2/d5c9a2681e41b2000136a09419c945b3.jpg" /> <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#ff9ecf">
+
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
     <style>
         :root {
             --primary-glow: #ff9ecf; /* Rosa */
@@ -176,39 +189,16 @@
         .details-list li { margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
         .details-list strong { color: var(--primary-glow); display: block; margin-bottom: 5px; font-size: 1.1rem; }
 
-        /* Estilo Galaxia (VERTICAL EN MOVIL, GRID EN PC) */
-        .galaxy-categories { 
-            display: flex; 
-            flex-direction: column;
-            gap: 20px; 
-            margin-top: 20px; 
-        }
-        
-        .galaxy-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 15px;
-            padding: 20px;
-        }
+        /* Estilo Galaxia (VERTICAL EN MOVIL) */
+        .galaxy-categories { display: flex; flex-direction: column; gap: 20px; margin-top: 20px; }
+        .galaxy-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; }
         .galaxy-card h3 { color: var(--gold-accent); font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-top: 0; }
         .galaxy-card ul { padding-left: 20px; margin: 0; font-size: 0.9rem; line-height: 1.6; color: #ddd; }
         .galaxy-card li { margin-bottom: 8px; }
-
-        /* CLASE NUEVA PARA CORREGIR EL TEXTO APACHURRADO */
-        .galaxy-inner-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* Por defecto 2 columnas */
-            gap: 10px;
-        }
+        .galaxy-inner-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
         /* Estilo Manual de Reina */
-        .queen-manual {
-            background: rgba(255, 215, 0, 0.05);
-            border: 1px solid var(--gold-accent);
-            padding: 25px;
-            border-radius: 15px;
-            margin-top: 30px;
-        }
+        .queen-manual { background: rgba(255, 215, 0, 0.05); border: 1px solid var(--gold-accent); padding: 25px; border-radius: 15px; margin-top: 30px; }
         .queen-manual h3 { text-align: center; color: var(--gold-accent); margin-top: 0; font-family: 'Cinzel', serif; }
         .manual-item { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; }
         .manual-icon { font-size: 1.2rem; min-width: 25px; }
@@ -242,11 +232,7 @@
             h1 { font-size: 1.8rem; }
             .planet { width: 80px; height: 80px; }
             .engineer-footer { position: relative; margin-top: 40px; padding-bottom: 20px; font-size: 0.7rem;}
-            
-            /* CORRECCIÓN CRÍTICA PARA EL TEXTO "APACHURRADO" */
-            .galaxy-inner-grid {
-                grid-template-columns: 1fr; /* Una sola columna en móvil */
-            }
+            .galaxy-inner-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -630,7 +616,7 @@
     <script>
         // === CONFIGURACIÓN ===
         // TARGET: 20 DE ENERO 2026, 11:11 PM
-        const targetDate = new Date(2024, 0, 20, 23, 11, 0); 
+        const targetDate = new Date(2026, 0, 20, 21, 34, 0); 
         
         let unlocked = false;
 
@@ -651,6 +637,21 @@
                 const unlockContainer = document.getElementById('unlock-container');
                 unlockContainer.classList.remove('hidden');
                 setTimeout(() => { unlockContainer.style.opacity = 1; }, 100);
+                
+                // LANZAR CONFETI
+                var duration = 3 * 1000;
+                var animationEnd = Date.now() + duration;
+                var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0, colors: ['#ff9ecf', '#ffd700', '#ffffff'] };
+
+                function randomInRange(min, max) { return Math.random() * (max - min) + min; }
+
+                var interval = setInterval(function() {
+                    var timeLeft = animationEnd - Date.now();
+                    if (timeLeft <= 0) { return clearInterval(interval); }
+                    var particleCount = 50 * (timeLeft / duration);
+                    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+                }, 250);
             }
         }
         setInterval(checkTime, 1000);
