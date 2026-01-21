@@ -176,13 +176,14 @@
         .details-list li { margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
         .details-list strong { color: var(--primary-glow); display: block; margin-bottom: 5px; font-size: 1.1rem; }
 
-        /* Estilo Galaxia (VERTICAL) */
+        /* Estilo Galaxia (VERTICAL EN MOVIL, GRID EN PC) */
         .galaxy-categories { 
             display: flex; 
-            flex-direction: column; /* AQUÍ ESTÁ EL CAMBIO: UNO DEBAJO DEL OTRO */
+            flex-direction: column;
             gap: 20px; 
             margin-top: 20px; 
         }
+        
         .galaxy-card {
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.1);
@@ -192,6 +193,13 @@
         .galaxy-card h3 { color: var(--gold-accent); font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-top: 0; }
         .galaxy-card ul { padding-left: 20px; margin: 0; font-size: 0.9rem; line-height: 1.6; color: #ddd; }
         .galaxy-card li { margin-bottom: 8px; }
+
+        /* CLASE NUEVA PARA CORREGIR EL TEXTO APACHURRADO */
+        .galaxy-inner-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Por defecto 2 columnas */
+            gap: 10px;
+        }
 
         /* Estilo Manual de Reina */
         .queen-manual {
@@ -234,6 +242,11 @@
             h1 { font-size: 1.8rem; }
             .planet { width: 80px; height: 80px; }
             .engineer-footer { position: relative; margin-top: 40px; padding-bottom: 20px; font-size: 0.7rem;}
+            
+            /* CORRECCIÓN CRÍTICA PARA EL TEXTO "APACHURRADO" */
+            .galaxy-inner-grid {
+                grid-template-columns: 1fr; /* Una sola columna en móvil */
+            }
         }
     </style>
 </head>
@@ -527,7 +540,7 @@
 
                 <div class="galaxy-card">
                     <h3>🪐 El Mundo de Salomé</h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div class="galaxy-inner-grid">
                         <ul>
                             <li><strong>Transporte:</strong> Moto > Carro.</li>
                             <li><strong>Sueño:</strong> Vivir en Londres.</li>
