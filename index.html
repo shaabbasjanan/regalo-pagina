@@ -9,7 +9,8 @@
 
     <meta property="og:title" content="Para Salomé: Tu Universo 🪐✨" />
     <meta property="og:description" content="Un pequeño rincón digital creado con el corazón para celebrar tu existencia. 11:11" />
-    <meta property="og:image" content="https://i.pinimg.com/originals/d5/c9/a2/d5c9a2681e41b2000136a09419c945b3.jpg" /> <meta property="og:image:width" content="1200" />
+    <meta property="og:image" content="https://i.pinimg.com/originals/d5/c9/a2/d5c9a2681e41b2000136a09419c945b3.jpg" />
+    <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#ff9ecf">
@@ -248,18 +249,10 @@
     </svg>
 
     <div id="prelude-screen" class="screen">
-        <audio id="bg-music" loop>
-            <source src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_5b66723232.mp3" type="audio/mpeg">
-        </audio>
-
         <div id="clock-wrapper">
             <div class="date-display">20 de Enero</div>
             <div id="real-clock" class="clock-container">--:--</div>
             <p style="opacity: 0.6; font-size: 0.9rem; letter-spacing: 1px;">Esperando el momento...</p>
-            
-            <button onclick="startMusic()" id="init-btn" style="margin-top: 30px; background: transparent; border: 1px solid #555; color: #888; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-size: 0.7rem; text-transform: uppercase;">
-                Activar Sonido
-            </button>
         </div>
 
         <div id="unlock-container" class="hidden">
@@ -616,7 +609,7 @@
     <script>
         // === CONFIGURACIÓN ===
         // TARGET: 20 DE ENERO 2026, 11:11 PM
-        const targetDate = new Date(2026, 0, 20, 21, 34, 0); 
+        const targetDate = new Date(2026, 0, 20, 23, 11, 0); 
         
         let unlocked = false;
 
@@ -658,11 +651,6 @@
         checkTime();
 
         // --- NAVEGACIÓN ---
-        function startMusic() {
-            document.getElementById('bg-music').play().catch(e => console.log("Audio play failed"));
-            document.getElementById('init-btn').style.display = 'none';
-        }
-
         function openLetterDirectly() {
             document.getElementById('prelude-screen').style.opacity = 0;
             setTimeout(() => {
