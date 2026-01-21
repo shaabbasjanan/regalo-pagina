@@ -106,10 +106,10 @@
             color: #ddd;
         }
 
-        /* --- 3. EL UNIVERSO (3x3 GRID) --- */
+        /* --- 3. EL UNIVERSO (GRID 3x3) --- */
         .universe-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 columnas para 9 items */
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             max-width: 800px;
             margin-top: 20px;
@@ -155,7 +155,7 @@
 
         .modal-content {
             background: linear-gradient(145deg, #151515, #0a0a0a);
-            width: 90%; max-width: 600px; max-height: 85vh;
+            width: 90%; max-width: 700px; max-height: 85vh; /* Un poco más ancho para la galaxia */
             overflow-y: auto; padding: 40px 30px;
             border-radius: 20px;
             border: 1px solid var(--border-glass);
@@ -165,122 +165,58 @@
         }
         .modal-overlay.active .modal-content { transform: translateY(0); }
 
-        /* Estilo Carta */
-        .letter-scroll {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: #e0e0e0;
-            padding-right: 10px;
-        }
+        /* Estilos Internos */
+        .letter-scroll { font-family: 'Playfair Display', serif; font-size: 1.05rem; line-height: 1.8; color: #e0e0e0; padding-right: 10px; }
         .letter-scroll p { margin-bottom: 20px; }
-        .letter-sector {
-            background: rgba(255,255,255,0.03);
-            border-left: 2px solid var(--primary-glow);
-            padding: 15px;
-            margin: 20px 0;
-        }
+        .letter-sector { background: rgba(255,255,255,0.03); border-left: 2px solid var(--primary-glow); padding: 15px; margin: 20px 0; }
         .letter-sector strong { color: var(--primary-glow); display: block; margin-bottom: 5px; }
 
         /* Estilo Mañas (Detalles) */
-        .details-list {
-            list-style: none;
-            padding: 0;
-        }
-        .details-list li {
-            margin-bottom: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 15px;
-        }
-        .details-list strong {
-            color: var(--primary-glow);
-            display: block;
-            margin-bottom: 5px;
-            font-size: 1.1rem;
-        }
+        .details-list { list-style: none; padding: 0; }
+        .details-list li { margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
+        .details-list strong { color: var(--primary-glow); display: block; margin-bottom: 5px; font-size: 1.1rem; }
 
-        /* Estilo Tags */
-        .tags-container {
-            display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px;
+        /* Estilo Galaxia Pro (Categorías) */
+        .galaxy-categories { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+        .galaxy-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 20px;
         }
-        .tag {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; color: #ddd; transition: 0.3s;
+        .galaxy-card h3 { color: var(--gold-accent); font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-top: 0; }
+        .galaxy-card ul { padding-left: 20px; margin: 0; font-size: 0.9rem; line-height: 1.6; color: #ddd; }
+        .galaxy-card li { margin-bottom: 8px; }
+
+        /* Estilo Manual de Reina */
+        .queen-manual {
+            background: rgba(255, 215, 0, 0.05); /* Tinte dorado muy sutil */
+            border: 1px solid var(--gold-accent);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
         }
-        .tag:hover {
-            background: var(--primary-glow); color: black; border-color: var(--primary-glow);
-        }
+        .queen-manual h3 { text-align: center; color: var(--gold-accent); margin-top: 0; font-family: 'Cinzel', serif; }
+        .manual-item { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; }
+        .manual-icon { font-size: 1.2rem; min-width: 25px; }
+        .manual-text strong { color: #fff; display: block; }
+        .manual-text { font-size: 0.9rem; color: #ccc; }
 
         /* Estilo Foto Lirio */
-        .lily-frame {
-            width: 100%; height: 350px; 
-            border-radius: 15px; overflow: hidden;
-            border: 1px solid var(--border-glass); margin-top: 20px; position: relative;
-        }
-        .lily-frame img {
-            width: 100%; height: 100%; object-fit: cover; transition: transform 1s;
-        }
+        .lily-frame { width: 100%; height: 350px; border-radius: 15px; overflow: hidden; border: 1px solid var(--border-glass); margin-top: 20px; position: relative; }
+        .lily-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s; }
         .lily-frame:hover img { transform: scale(1.1); }
 
         /* --- AUDIO PLAYER --- */
-        .audio-player-wrapper {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-glass);
-            padding: 30px;
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            text-align: center;
-        }
-        .play-btn-custom {
-            width: 70px; height: 70px;
-            background: var(--primary-glow);
-            border-radius: 50%;
-            border: none;
-            display: flex; justify-content: center; align-items: center;
-            cursor: pointer;
-            color: black;
-            font-size: 1.5rem;
-            transition: 0.3s;
-            box-shadow: 0 0 20px rgba(255, 158, 207, 0.3);
-        }
+        .audio-player-wrapper { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-glass); padding: 30px; border-radius: 20px; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
+        .play-btn-custom { width: 70px; height: 70px; background: var(--primary-glow); border-radius: 50%; border: none; display: flex; justify-content: center; align-items: center; cursor: pointer; color: black; font-size: 1.5rem; transition: 0.3s; box-shadow: 0 0 20px rgba(255, 158, 207, 0.3); }
         .play-btn-custom:hover { transform: scale(1.1); box-shadow: 0 0 40px rgba(255, 158, 207, 0.6); }
 
         /* --- CÁPSULA DEL TIEMPO --- */
-        .wish-section {
-            text-align: center;
-            padding: 20px 0;
-        }
-        .wish-input {
-            width: 100%;
-            background: transparent;
-            border: none;
-            border-bottom: 2px solid var(--primary-glow);
-            color: white;
-            padding: 15px;
-            font-size: 1.1rem;
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 20px;
-            text-align: center;
-            outline: none;
-        }
+        .wish-section { text-align: center; padding: 20px 0; }
+        .wish-input { width: 100%; background: transparent; border: none; border-bottom: 2px solid var(--primary-glow); color: white; padding: 15px; font-size: 1.1rem; font-family: 'Playfair Display', serif; margin-bottom: 20px; text-align: center; outline: none; }
         .wish-input::placeholder { color: rgba(255,255,255,0.3); }
-        
-        .send-wish-btn {
-            background: transparent;
-            border: 1px solid white;
-            color: white;
-            padding: 12px 35px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-        }
+        .send-wish-btn { background: transparent; border: 1px solid white; color: white; padding: 12px 35px; border-radius: 30px; cursor: pointer; transition: 0.3s; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; }
         .send-wish-btn:hover { background: white; color: black; }
 
         /* ANIMACIONES */
@@ -288,9 +224,11 @@
         
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .universe-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .universe-grid { grid-template-columns: repeat(3, 1fr); gap: 15px; }
             .clock-container { font-size: 3.5rem; }
             h1 { font-size: 1.8rem; }
+            .planet { width: 80px; height: 80px; }
+            .galaxy-categories { grid-template-columns: 1fr; } /* Galaxia en 1 columna en móvil */
             .engineer-footer { position: relative; margin-top: 40px; padding-bottom: 20px; font-size: 0.7rem;}
         }
     </style>
@@ -357,35 +295,35 @@
                 <div class="planet-icon">🎀</div>
                 <span>Esencia</span>
             </div>
-            <div class="planet p2" onclick="openModal('modal-jardin')">
+            <div class="planet p2" onclick="openModal('modal-manas')">
+                <div class="planet-icon">🧩</div>
+                <span>Tus Mañas</span>
+            </div>
+            <div class="planet p3" onclick="openModal('modal-jardin')">
                 <div class="planet-icon">⚜️</div>
                 <span>Jardín</span>
             </div>
-            <div class="planet p3" onclick="openModal('modal-musica')">
+            <div class="planet p4" onclick="openModal('modal-musica')">
                 <div class="planet-icon">🎵</div>
                 <span>Frecuencia</span>
-            </div>
-            <div class="planet p4" onclick="openModal('modal-gustos')">
-                <div class="planet-icon">🪐</div>
-                <span>Galaxia</span>
             </div>
             <div class="planet p5" onclick="openModal('modal-carta')">
                 <div class="planet-icon">💌</div>
                 <span>Bitácora</span>
             </div>
-            <div class="planet p6" onclick="openModal('modal-audio')">
+            <div class="planet p6" onclick="openModal('modal-gustos')">
+                <div class="planet-icon">🪐</div>
+                <span>Galaxia</span>
+            </div>
+            <div class="planet p7" onclick="openModal('modal-audio')">
                 <div class="planet-icon">🎙️</div>
                 <span>Tu Voz</span>
             </div>
-            <div class="planet p7" onclick="openModal('modal-deseo')">
+            <div class="planet p8" onclick="openModal('modal-deseo')">
                 <div class="planet-icon">🌠</div>
                 <span>Cápsula</span>
             </div>
-            <div class="planet p9" onclick="openModal('modal-manas')">
-                <div class="planet-icon">🧩</div>
-                <span>Tus Mañas</span>
-            </div>
-            <div class="planet p8" onclick="openModal('modal-oraculo')">
+            <div class="planet p9" onclick="openModal('modal-oraculo')">
                 <div class="planet-icon">✨</div>
                 <span>Oráculo</span>
             </div>
@@ -438,6 +376,171 @@
         </div>
     </div>
 
+    <div id="modal-esencia" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content">
+            <button class="close-modal" onclick="forceClose()">×</button>
+            <h2>Tu Esencia</h2>
+            <p>Aunque empezaste en azul, hoy tu mundo es <strong>Rosa</strong>. Y te queda perfecto.</p>
+            <div style="display: flex; gap: 20px; margin-top: 20px; text-align: center;">
+                <div style="flex: 1;">
+                    <span style="font-size: 2rem;">✨</span>
+                    <p style="font-size: 0.9rem;"><strong>Skincare</strong><br>Limpiador en aceite & Rutina sagrada.</p>
+                </div>
+                <div style="flex: 1;">
+                    <span style="font-size: 2rem;">💆‍♀️</span>
+                    <p style="font-size: 0.9rem;"><strong>Cabello</strong><br>Siempre divino con su gorrito de satín.</p>
+                </div>
+            </div>
+            
+            <div class="queen-manual">
+                <h3>⚜️ Guía para Cuidar a una Reina ⚜️</h3>
+                
+                <div class="manual-item">
+                    <div class="manual-icon">❄️</div>
+                    <div class="manual-text">
+                        <strong>Si tiene frío...</strong>
+                        Revisa su nariz. Si está fría, necesita TRES cobijas y un té. No preguntes, actúa.
+                    </div>
+                </div>
+
+                <div class="manual-item">
+                    <div class="manual-icon">🌹</div>
+                    <div class="manual-text">
+                        <strong>En esos días difíciles...</strong>
+                        Nada que unas pastillas, chocolates y una mano cálida en el vientre no solucionen. Paciencia y amor.
+                    </div>
+                </div>
+
+                <div class="manual-item">
+                    <div class="manual-icon">🌊</div>
+                    <div class="manual-text">
+                        <strong>La decisión</strong>
+                        No le preguntes "¿qué hacemos?". Toma la iniciativa y llévala al mar.
+                    </div>
+                </div>
+
+                <div class="manual-item">
+                    <div class="manual-icon">🕷️</div>
+                    <div class="manual-text">
+                        <strong>La Araña</strong>
+                        No entres en pánico ni la mates. Llámala a ella, la salvará con delicadeza.
+                    </div>
+                </div>
+                
+                <div class="manual-item">
+                    <div class="manual-icon">🚗</div>
+                    <div class="manual-text">
+                        <strong>Caballerosidad</strong>
+                        Abre la puerta del carro, cárgale lo pesado. Ella es independiente, pero si recibe tus cuidados, sale su niña interior.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-manas" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content">
+            <button class="close-modal" onclick="forceClose()">×</button>
+            <h2>Tus Mañas</h2>
+            <p style="margin-bottom: 20px; opacity: 0.8;">"La mayoría se fija en lo obvio, yo me quedé con esto:"</p>
+            
+            <ul class="details-list">
+                <li>
+                    <strong>El mechoncito de pelo</strong>
+                    Esa costumbre de ponerte un mechón de pelo entre la boca y la nariz cuando estás muy concentrada o nerviosa. Sé que es algo que se te quedó de cuando tu mamá te lo ponía en la cara para dormir de niña.
+                </li>
+                <li>
+                    <strong>Pasarela infinita</strong>
+                    No importa si vas para la universidad o a la esquina; tú no caminas, tú desfilas.
+                </li>
+                <li>
+                    <strong>El ritual de la cama</strong>
+                    Nadie tiende la cama mejor que tú. Es de las primeras cosas que haces al despertar y te queda perfecta, como de hotel.
+                </li>
+                <li>
+                    <strong>Tu señal de frío</strong>
+                    No necesito preguntar; solo tengo que mirarte la nariz. Si está fría, es señal de alerta.
+                </li>
+                <li>
+                    <strong>Almuerzo con Auron</strong>
+                    Esa manía de no poder sentarte a comer sin tener un video de AuronPlay puesto. Es tu momento de desconexión.
+                </li>
+                <li>
+                    <strong>La salvadora de bichos</strong>
+                    Si hay un insecto extraño, tú lo tomas con cuidado y lo llevas a un lugar seguro. Esa delicadeza dice mucho de tu corazón.
+                </li>
+                <li>
+                    <strong>El secreto de la seda dental</strong>
+                    Sé que odias pasarla (especialmente con brackets), pero es un secreto que guardo con cariño.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal-jardin" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content">
+            <button class="close-modal" onclick="forceClose()">×</button>
+            <h2>Jardín Secreto</h2>
+            <p>Ni rosas, ni tulipanes. Para ti, la elegancia de un <strong>LIRIO</strong>.</p>
+            <div class="lily-frame">
+                <img src="lirios.jpg" alt="Lirios" onerror="this.src='https://images.unsplash.com/photo-1572454591674-2739f30d8c40?q=80'">
+            </div>
+            <p style="margin-top: 15px; font-size: 0.9rem;">Amas las flores, pero ojo con las serenatas: te haces la dura, pero sé que te derrites.</p>
+        </div>
+    </div>
+
+    <div id="modal-gustos" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content">
+            <button class="close-modal" onclick="forceClose()">×</button>
+            <h2 style="text-align: center;">Galaxia de Gustos</h2>
+            
+            <div class="galaxy-categories">
+                <div class="galaxy-card">
+                    <h3>🍬 Paladar Real</h3>
+                    <ul>
+                        <li><strong>Chocolate:</strong> Kinder (El único).</li>
+                        <li><strong>Favorito:</strong> Pasta Carbonara.</li>
+                        <li><strong>Desayuno:</strong> Pancakes y Fruta.</li>
+                        <li><strong>Picante:</strong> Takis Fuego y Detodito Rojo.</li>
+                        <li><strong>Helado:</strong> Menta con Chocolate (Bogotá) y Maracuyá.</li>
+                        <li><strong>Bebidas:</strong> Tés, Bubble Tea, Sodas.</li>
+                        <li><strong>Torta:</strong> Red Velvet.</li>
+                        <li><strong>Acido:</strong> Mango y Gomitas.</li>
+                    </ul>
+                </div>
+
+                <div class="galaxy-card">
+                    <h3>💅 Estética & Cuidado</h3>
+                    <ul>
+                        <li><strong>Skincare:</strong> Aceite + Agua Micelar en aceite.</li>
+                        <li><strong>Pelo:</strong> Gorrito de Satín (Sagrado).</li>
+                        <li><strong>Accesorios:</strong> Oro > Plata (Siempre dorado).</li>
+                        <li><strong>Calzado:</strong> Tacones (Futuro clóset gigante).</li>
+                        <li><strong>Estilo:</strong> Coquette.</li>
+                        <li><strong>Ojos:</strong> Lulo (y los más lindos del universo).</li>
+                    </ul>
+                </div>
+
+                <div class="galaxy-card" style="grid-column: span 2;"> <h3>🪐 El Mundo de Salomé</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <ul>
+                            <li><strong>Transporte:</strong> Moto > Carro.</li>
+                            <li><strong>Sueño:</strong> Vivir en Londres.</li>
+                            <li><strong>Personajes:</strong> Snoopy & Rapunzel.</li>
+                            <li><strong>Hobbies:</strong> Videojuegos (Among Us), Leer (Romance/Psicología).</li>
+                        </ul>
+                        <ul>
+                            <li><strong>Animales:</strong> Gatos (Amor), Vacas (Deseo), Hámsters.</li>
+                            <li><strong>Música:</strong> Taylor Swift, Lana del Rey, Karol G, Bad Bunny.</li>
+                            <li><strong>Placer:</strong> Dormir (Días seguidos).</li>
+                            <li><strong>Número:</strong> 8.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="modal-audio" class="modal-overlay" onclick="closeModal(event)">
         <div class="modal-content">
             <button class="close-modal" onclick="forceClose()">×</button>
@@ -461,118 +564,21 @@
         <div class="modal-content">
             <button class="close-modal" onclick="forceClose()">×</button>
             <h2>Cápsula del Tiempo</h2>
-            
             <div class="wish-section">
                 <p style="font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6;">
                     Pide todos los deseos que quieras. Yo desde aquí haré fuerza para que se cumplan.<br>
                     Escribe tu deseo aquí:
                 </p>
-                
                 <form id="wishForm" action="https://formsubmit.co/7076551@gmail.com" method="POST">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_subject" value="Nuevo Deseo de Salomé">
-                    
                     <input type="text" name="deseo" class="wish-input" placeholder="Mi deseo es..." required autocomplete="off">
-                    
                     <button type="submit" class="send-wish-btn">Enviar al Universo</button>
                 </form>
-                
                 <p id="wish-success" style="display:none; color: var(--primary-glow); margin-top: 20px; font-style: italic; border: 1px solid var(--primary-glow); padding: 15px; border-radius: 10px; animation: heartbeat 1s;">
                     ✨ ¡Deseo enviado! Puedes pedir otro si quieres.
                 </p>
             </div>
-        </div>
-    </div>
-
-    <div id="modal-jardin" class="modal-overlay" onclick="closeModal(event)">
-        <div class="modal-content">
-            <button class="close-modal" onclick="forceClose()">×</button>
-            <h2>Jardín Secreto</h2>
-            <p>Ni rosas, ni tulipanes. Para ti, la elegancia de un <strong>LIRIO</strong>.</p>
-            <div class="lily-frame">
-                <img src="lirios.jpg" alt="Lirios" onerror="this.src='https://images.unsplash.com/photo-1572454591674-2739f30d8c40?q=80'">
-            </div>
-            <p style="margin-top: 15px; font-size: 0.9rem;">Tu delicadeza es tu mayor fuerza.</p>
-        </div>
-    </div>
-
-    <div id="modal-manas" class="modal-overlay" onclick="closeModal(event)">
-        <div class="modal-content">
-            <button class="close-modal" onclick="forceClose()">×</button>
-            <h2>Tus Pequeños Detalles</h2>
-            <p style="margin-bottom: 20px; opacity: 0.8;">"La mayoría se fija en lo obvio, yo me quedé con esto:"</p>
-            
-            <ul class="details-list">
-                <li>
-                    <strong>El mechoncito de pelo</strong>
-                    Cuando estás concentrada o nerviosa, te pones el pelo entre la boca y la nariz. Un gesto auténtico de tu niñez.
-                </li>
-                <li>
-                    <strong>Pasarela infinita</strong>
-                    No caminas, desfilas. Tienes ese porte de modelo natural, así vayas a la esquina.
-                </li>
-                <li>
-                    <strong>El ritual de la cama</strong>
-                    Nadie tiende la cama mejor que tú. Es sagrado y te queda perfecto, como de hotel.
-                </li>
-                <li>
-                    <strong>Tu señal de frío</strong>
-                    No necesito preguntar; si tu nariz está fría, necesitas tres cobijas urgente.
-                </li>
-                <li>
-                    <strong>Almuerzo con Auron</strong>
-                    Tu momento sagrado de desconexión: comer viendo un video de AuronPlay.
-                </li>
-                <li>
-                    <strong>La salvadora de bichos</strong>
-                    Mientras otros gritan, tú tomas la araña con cuidado y la llevas a un lugar seguro. Eso dice mucho de tu corazón.
-                </li>
-                <li>
-                    <strong>El secreto de la seda dental</strong>
-                    Sé que odias pasarla (especialmente con brackets), pero es un secreto que guardo con cariño.
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="modal-gustos" class="modal-overlay" onclick="closeModal(event)">
-        <div class="modal-content" style="text-align: center;">
-            <button class="close-modal" onclick="forceClose()">×</button>
-            <h2>Galaxia de Gustos</h2>
-            <p style="margin-bottom: 20px;">Pequeñas cosas que te hacen ser tú.</p>
-            <div class="tags-container">
-                <span class="tag">🍝 Pasta Carbonara</span>
-                <span class="tag">🥞 Pancakes</span>
-                <span class="tag">🍓 Fresa</span>
-                <span class="tag">🌶️ Takis Fuego</span>
-                <span class="tag">🍫 Kinder</span>
-                <span class="tag">🍦 Helado</span>
-                <span class="tag">💤 Dormir (Mucho)</span>
-                <span class="tag">🐶 Snoopy</span>
-                <span class="tag">👸 Rapunzel</span>
-                <span class="tag">🐱 Gatos</span>
-                <span class="tag">🇬🇧 Londres</span>
-                <span class="tag">🎮 Among Us</span>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-esencia" class="modal-overlay" onclick="closeModal(event)">
-        <div class="modal-content">
-            <button class="close-modal" onclick="forceClose()">×</button>
-            <h2>Tu Esencia</h2>
-            <p>Aunque empezaste en azul, hoy tu mundo es <strong>Rosa</strong>. Y te queda perfecto.</p>
-            <div style="display: flex; gap: 20px; margin-top: 20px; text-align: center;">
-                <div style="flex: 1;">
-                    <span style="font-size: 2rem;">✨</span>
-                    <p style="font-size: 0.9rem;"><strong>Skincare</strong><br>Limpiador en aceite & Rutina sagrada.</p>
-                </div>
-                <div style="flex: 1;">
-                    <span style="font-size: 2rem;">💆‍♀️</span>
-                    <p style="font-size: 0.9rem;"><strong>Cabello</strong><br>Siempre divino con su gorrito de satín.</p>
-                </div>
-            </div>
-            <p style="margin-top: 20px; font-style: italic;">"Admiro tu disciplina. Eres arte cuidándose a sí misma."</p>
         </div>
     </div>
 
@@ -605,10 +611,9 @@
 
     <script>
         // === CONFIGURACIÓN ===
-        // HOY 20 DE ENERO A LAS 11:11 PM
-        const targetDate = new Date(2024, 0, 20, 23, 11, 0); 
+        // TARGET: 20 DE ENERO 2026, 11:11 PM
+        const targetDate = new Date(2026, 0, 20, 23, 11, 0); 
         
-        // --- LÓGICA DEL TIEMPO ---
         let unlocked = false;
 
         function checkTime() {
@@ -664,7 +669,7 @@
             }, 800);
         }
 
-        // --- LÓGICA DE LA NOTA DE VOZ ---
+        // --- AUDIO PLAYER ---
         function toggleVoiceNote() {
             const audio = document.getElementById('miguel-voice');
             const btn = document.querySelector('.play-btn-custom');
@@ -682,7 +687,7 @@
             };
         }
 
-        // --- LÓGICA DEL FORMULARIO DE DESEO (MÚLTIPLES ENVÍOS) ---
+        // --- FORMULARIO DESEO ---
         const wishForm = document.getElementById('wishForm');
         wishForm.addEventListener('submit', function(e) {
             e.preventDefault(); 
@@ -696,7 +701,6 @@
 
             const successMsg = document.getElementById('wish-success');
             successMsg.style.display = 'block';
-
             wishForm.reset();
 
             setTimeout(() => {
