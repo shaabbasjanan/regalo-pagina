@@ -211,6 +211,36 @@
         .lily-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s; }
         .lily-frame:hover img { transform: scale(1.1); }
 
+        /* Estilos Mensaje Diario (Oráculo) */
+        #oracle-container {
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.02);
+            opacity: 0; 
+            transition: opacity 0.5s;
+        }
+        .oracle-title {
+            color: var(--gold-accent);
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .oracle-body {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #fff;
+            font-style: italic;
+        }
+
         /* --- AUDIO PLAYER --- */
         .audio-player-wrapper { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-glass); padding: 30px; border-radius: 20px; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
         .play-btn-custom { width: 70px; height: 70px; background: var(--primary-glow); border-radius: 50%; border: none; display: flex; justify-content: center; align-items: center; cursor: pointer; color: black; font-size: 1.5rem; transition: 0.3s; box-shadow: 0 0 20px rgba(255, 158, 207, 0.3); }
@@ -387,49 +417,13 @@
                     <p style="font-size: 0.9rem;"><strong>Cabello</strong><br>Siempre divino con su gorrito de satín.</p>
                 </div>
             </div>
-            
             <div class="queen-manual">
                 <h3>⚜️ Guía para Cuidar a una Reina ⚜️</h3>
-                
-                <div class="manual-item">
-                    <div class="manual-icon">❄️</div>
-                    <div class="manual-text">
-                        <strong>Si tiene frío...</strong>
-                        Revisa su nariz. Si está fría, necesita TRES cobijas y un té. No preguntes, actúa.
-                    </div>
-                </div>
-
-                <div class="manual-item">
-                    <div class="manual-icon">🌹</div>
-                    <div class="manual-text">
-                        <strong>En esos días difíciles...</strong>
-                        Nada que unas pastillas, chocolates y una mano cálida en el vientre no solucionen. Paciencia y amor.
-                    </div>
-                </div>
-
-                <div class="manual-item">
-                    <div class="manual-icon">🌊</div>
-                    <div class="manual-text">
-                        <strong>La decisión</strong>
-                        No le preguntes "¿qué hacemos?". Toma la iniciativa y llévala al mar.
-                    </div>
-                </div>
-
-                <div class="manual-item">
-                    <div class="manual-icon">🕷️</div>
-                    <div class="manual-text">
-                        <strong>La Araña</strong>
-                        No entres en pánico ni la mates. Llámala a ella, la salvará con delicadeza.
-                    </div>
-                </div>
-                
-                <div class="manual-item">
-                    <div class="manual-icon">🚗</div>
-                    <div class="manual-text">
-                        <strong>Caballerosidad</strong>
-                        Abre la puerta del carro, cárgale lo pesado. Ella es independiente, pero si recibe tus cuidados, sale su niña interior.
-                    </div>
-                </div>
+                <div class="manual-item"><div class="manual-icon">❄️</div><div class="manual-text"><strong>Si tiene frío...</strong>Revisa su nariz. Si está fría, necesita TRES cobijas y un té.</div></div>
+                <div class="manual-item"><div class="manual-icon">🌹</div><div class="manual-text"><strong>En esos días difíciles...</strong>Nada que unas pastillas, chocolates y una mano cálida en el vientre no solucionen.</div></div>
+                <div class="manual-item"><div class="manual-icon">🌊</div><div class="manual-text"><strong>La decisión</strong>No le preguntes "¿qué hacemos?". Toma la iniciativa y llévala al mar.</div></div>
+                <div class="manual-item"><div class="manual-icon">🕷️</div><div class="manual-text"><strong>La Araña</strong>No entres en pánico ni la mates. Llámala a ella, la salvará con delicadeza.</div></div>
+                <div class="manual-item"><div class="manual-icon">🚗</div><div class="manual-text"><strong>Caballerosidad</strong>Abre la puerta del carro, cárgale lo pesado. Ella es independiente, pero si recibe tus cuidados, sale su niña interior.</div></div>
             </div>
         </div>
     </div>
@@ -439,36 +433,14 @@
             <button class="close-modal" onclick="forceClose()">×</button>
             <h2>Tus Pequeños Detalles</h2>
             <p style="margin-bottom: 20px; opacity: 0.8;">"La mayoría se fija en lo obvio, yo me quedé con esto:"</p>
-            
             <ul class="details-list">
-                <li>
-                    <strong>El mechoncito de pelo</strong>
-                    Esa costumbre de ponerte un mechón de pelo entre la boca y la nariz cuando estás muy concentrada o nerviosa. Sé que es algo que se te quedó de cuando tu mamá te lo ponía en la cara para dormir de niña.
-                </li>
-                <li>
-                    <strong>Pasarela infinita</strong>
-                    No importa si vas a la esquina; tú no caminas, tú desfilas. Tienes ese porte de modelo natural.
-                </li>
-                <li>
-                    <strong>El ritual de la cama</strong>
-                    Nadie tiende la cama mejor que tú. Es de las primeras cosas que haces al despertar y te queda perfecta, como de hotel.
-                </li>
-                <li>
-                    <strong>Tu señal de frío</strong>
-                    No necesito preguntar; solo tengo que mirarte la nariz. Si está fría, es señal de alerta.
-                </li>
-                <li>
-                    <strong>Almuerzo con Auron</strong>
-                    Esa manía de no poder sentarte a comer sin tener un video de AuronPlay puesto. Es tu momento de desconexión.
-                </li>
-                <li>
-                    <strong>La salvadora de bichos</strong>
-                    Si hay un insecto extraño, tú lo tomas con cuidado y lo llevas a un lugar seguro. Esa delicadeza dice mucho de tu corazón.
-                </li>
-                <li>
-                    <strong>El secreto de la seda dental</strong>
-                    Sé que odias pasarla (especialmente con brackets), pero es un secreto que guardo con cariño.
-                </li>
+                <li><strong>El mechoncito de pelo</strong>Esa costumbre de ponerte un mechón de pelo entre la boca y la nariz cuando estás muy concentrada o nerviosa.</li>
+                <li><strong>Pasarela infinita</strong>No importa si vas a la esquina; tú no caminas, tú desfilas. Tienes ese porte de modelo natural.</li>
+                <li><strong>El ritual de la cama</strong>Nadie tiende la cama mejor que tú. Es de las primeras cosas que haces al despertar y te queda perfecta.</li>
+                <li><strong>Tu señal de frío</strong>No necesito preguntar; solo tengo que mirarte la nariz. Si está fría, es señal de alerta.</li>
+                <li><strong>Almuerzo con Auron</strong>Esa manía de no poder sentarte a comer sin tener un video de AuronPlay puesto. Es tu momento de desconexión.</li>
+                <li><strong>La salvadora de bichos</strong>Si hay un insecto extraño, tú lo tomas con cuidado y lo llevas a un lugar seguro. Esa delicadeza dice mucho de tu corazón.</li>
+                <li><strong>El secreto de la seda dental</strong>Sé que odias pasarla (especialmente con brackets), pero es un secreto que guardo con cariño.</li>
             </ul>
         </div>
     </div>
@@ -489,49 +461,20 @@
         <div class="modal-content">
             <button class="close-modal" onclick="forceClose()">×</button>
             <h2 style="text-align: center;">Galaxia de Gustos</h2>
-            
             <div class="galaxy-categories">
                 <div class="galaxy-card">
                     <h3>🍬 Paladar Real</h3>
-                    <ul>
-                        <li><strong>Chocolate:</strong> Kinder (El único).</li>
-                        <li><strong>Favorito:</strong> Pasta Carbonara.</li>
-                        <li><strong>Desayuno:</strong> Pancakes y Fruta.</li>
-                        <li><strong>Picante:</strong> Takis Fuego y Detodito Rojo.</li>
-                        <li><strong>Helado:</strong> Menta con Chocolate (Bogotá) y Maracuyá.</li>
-                        <li><strong>Bebidas:</strong> Tés, Bubble Tea, Sodas.</li>
-                        <li><strong>Torta:</strong> Red Velvet.</li>
-                        <li><strong>Acido:</strong> Mango y Gomitas.</li>
-                    </ul>
+                    <ul><li><strong>Chocolate:</strong> Kinder (El único).</li><li><strong>Favorito:</strong> Pasta Carbonara.</li><li><strong>Desayuno:</strong> Pancakes y Fruta.</li><li><strong>Picante:</strong> Takis Fuego y Detodito Rojo.</li><li><strong>Helado:</strong> Menta con Chocolate (Bogotá) y Maracuyá.</li><li><strong>Bebidas:</strong> Tés, Bubble Tea, Sodas.</li><li><strong>Torta:</strong> Red Velvet.</li><li><strong>Acido:</strong> Mango y Gomitas.</li></ul>
                 </div>
-
                 <div class="galaxy-card">
                     <h3>💅 Estética & Cuidado</h3>
-                    <ul>
-                        <li><strong>Skincare:</strong> Madagascar Centella (Aceite) & Agua Micelar.</li>
-                        <li><strong>Pelo:</strong> Gorrito de Satín (Sagrado).</li>
-                        <li><strong>Accesorios:</strong> Oro > Plata (Siempre dorado).</li>
-                        <li><strong>Calzado:</strong> Tacones (Futuro clóset gigante).</li>
-                        <li><strong>Estilo:</strong> Coquette.</li>
-                        <li><strong>Ojos:</strong> Lulo (y los más lindos del universo).</li>
-                    </ul>
+                    <ul><li><strong>Skincare:</strong> Madagascar Centella (Aceite) & Agua Micelar.</li><li><strong>Pelo:</strong> Gorrito de Satín (Sagrado).</li><li><strong>Accesorios:</strong> Oro > Plata (Siempre dorado).</li><li><strong>Calzado:</strong> Tacones (Futuro clóset gigante).</li><li><strong>Estilo:</strong> Coquette.</li><li><strong>Ojos:</strong> Lulo (y los más lindos del universo).</li></ul>
                 </div>
-
                 <div class="galaxy-card">
                     <h3>🪐 El Mundo de Salomé</h3>
                     <div class="galaxy-inner-grid">
-                        <ul>
-                            <li><strong>Transporte:</strong> Moto > Carro.</li>
-                            <li><strong>Sueño:</strong> Vivir en Londres.</li>
-                            <li><strong>Personajes:</strong> Snoopy & Rapunzel.</li>
-                            <li><strong>Hobbies:</strong> Videojuegos (Among Us), Leer (Romance/Psicología).</li>
-                        </ul>
-                        <ul>
-                            <li><strong>Animales:</strong> Gatos (Amor), Vacas (Deseo), Hámsters.</li>
-                            <li><strong>Música:</strong> Taylor Swift, Lana del Rey, Karol G, Bad Bunny.</li>
-                            <li><strong>Placer:</strong> Dormir (Días seguidos).</li>
-                            <li><strong>Número:</strong> 8.</li>
-                        </ul>
+                        <ul><li><strong>Transporte:</strong> Moto > Carro.</li><li><strong>Sueño:</strong> Vivir en Londres.</li><li><strong>Personajes:</strong> Snoopy & Rapunzel.</li><li><strong>Hobbies:</strong> Videojuegos (Among Us), Leer (Romance/Psicología).</li></ul>
+                        <ul><li><strong>Animales:</strong> Gatos (Amor), Vacas (Deseo), Hámsters.</li><li><strong>Música:</strong> Taylor Swift, Lana del Rey, Karol G, Bad Bunny.</li><li><strong>Placer:</strong> Dormir (Días seguidos).</li><li><strong>Número:</strong> 8.</li></ul>
                     </div>
                 </div>
             </div>
@@ -543,16 +486,10 @@
             <button class="close-modal" onclick="forceClose()">×</button>
             <h2>Un Mensaje de Voz</h2>
             <p style="text-align: center;">"Solo quería que escucharas de mi propia voz..."</p>
-            
             <div class="audio-player-wrapper">
                 <button class="play-btn-custom" onclick="toggleVoiceNote()">▶</button>
-                <div>
-                    <span style="font-size: 1.1rem; font-weight: bold; color: #fff;">Nota de voz.mp3</span><br>
-                    <span style="font-size: 0.8rem; color: #aaa;">Miguel</span>
-                </div>
-                <audio id="miguel-voice">
-                    <source src="nota_voz.mp3" type="audio/mpeg">
-                </audio>
+                <div><span style="font-size: 1.1rem; font-weight: bold; color: #fff;">Nota de voz.mp3</span><br><span style="font-size: 0.8rem; color: #aaa;">Miguel</span></div>
+                <audio id="miguel-voice"><source src="nota_voz.mp3" type="audio/mpeg"></audio>
             </div>
         </div>
     </div>
@@ -562,19 +499,14 @@
             <button class="close-modal" onclick="forceClose()">×</button>
             <h2>Cápsula del Tiempo</h2>
             <div class="wish-section">
-                <p style="font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6;">
-                    Pide todos los deseos que quieras. Yo desde aquí haré fuerza para que se cumplan.<br>
-                    Escribe tu deseo aquí:
-                </p>
+                <p style="font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6;">Pide todos los deseos que quieras. Yo desde aquí haré fuerza para que se cumplan.<br>Escribe tu deseo aquí:</p>
                 <form id="wishForm" action="https://formsubmit.co/7076551@gmail.com" method="POST">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_subject" value="Nuevo Deseo de Salomé">
                     <input type="text" name="deseo" class="wish-input" placeholder="Mi deseo es..." required autocomplete="off">
                     <button type="submit" class="send-wish-btn">Enviar al Universo</button>
                 </form>
-                <p id="wish-success" style="display:none; color: var(--primary-glow); margin-top: 20px; font-style: italic; border: 1px solid var(--primary-glow); padding: 15px; border-radius: 10px; animation: heartbeat 1s;">
-                    ✨ ¡Deseo enviado! Puedes pedir otro si quieres.
-                </p>
+                <p id="wish-success" style="display:none; color: var(--primary-glow); margin-top: 20px; font-style: italic; border: 1px solid var(--primary-glow); padding: 15px; border-radius: 10px; animation: heartbeat 1s;">✨ ¡Deseo enviado! Puedes pedir otro si quieres.</p>
             </div>
         </div>
     </div>
@@ -586,12 +518,8 @@
             <div style="background: #111; padding: 20px; border-radius: 10px; border: 1px solid #333; text-align: center; margin-top: 20px;">
                 <p style="font-size: 2rem; margin: 0;">🎧</p>
                 <h3 style="margin: 10px 0; color: white;">Playlist para Ti</h3>
-                <p style="color: #ddd; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6;">
-                    "Esta es la playlist que una vez te hice. Por si no te sientes amada o te sientes sola, recuerda que estoy ahí."
-                </p>
-                <a href="https://open.spotify.com/playlist/4RS0J2UyasEQKG2PUARv3c?si=veVmUkt4QTKiM5WoKUEY7w" target="_blank" style="background: #1DB954; color: black; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">
-                    Abrir en Spotify
-                </a>
+                <p style="color: #ddd; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6;">"Esta es la playlist que una vez te hice. Por si no te sientes amada o te sientes sola, recuerda que estoy ahí."</p>
+                <a href="https://open.spotify.com/playlist/4RS0J2UyasEQKG2PUARv3c?si=veVmUkt4QTKiM5WoKUEY7w" target="_blank" style="background: #1DB954; color: black; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">Abrir en Spotify</a>
             </div>
         </div>
     </div>
@@ -600,15 +528,20 @@
         <div class="modal-content" style="text-align: center;">
             <button class="close-modal" onclick="forceClose()">×</button>
             <h2>El Oráculo</h2>
-            <p style="font-size: 0.9rem; opacity: 0.8;">Un mensaje para cuando necesites una señal.</p>
-            <div id="oracle-msg" style="min-height: 80px; display: flex; align-items: center; justify-content: center; font-style: italic; color: var(--primary-glow); font-size: 1.2rem; margin: 20px 0;">...</div>
+            <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px;">Un mensaje para tu día.</p>
+            
+            <div id="oracle-container">
+                <div id="oracle-title" class="oracle-title">...</div>
+                <div id="oracle-body" class="oracle-body">...</div>
+            </div>
+
             <button onclick="getOracle()" style="padding: 12px 30px; border-radius: 25px; border: none; background: var(--primary-glow); color: black; cursor: pointer; font-weight: bold;">Recibir Señal</button>
         </div>
     </div>
 
     <script>
-        // === CONFIGURACIÓN ===
-        // TARGET: 20 DE ENERO 2026, 11:11 PM
+        // === CONFIGURACIÓN GENERAL ===
+        // TARGET DEL RELOJ PRINCIPAL: 20 DE ENERO 2026, 11:11 PM
         const targetDate = new Date(2026, 0, 20, 23, 11, 0); 
         
         let unlocked = false;
@@ -635,9 +568,7 @@
                 var duration = 3 * 1000;
                 var animationEnd = Date.now() + duration;
                 var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0, colors: ['#ff9ecf', '#ffd700', '#ffffff'] };
-
                 function randomInRange(min, max) { return Math.random() * (max - min) + min; }
-
                 var interval = setInterval(function() {
                     var timeLeft = animationEnd - Date.now();
                     if (timeLeft <= 0) { return clearInterval(interval); }
@@ -688,57 +619,79 @@
                 audio.pause();
                 btn.innerText = "▶"; 
             }
-            
-            audio.onended = function() {
-                btn.innerText = "▶";
-            };
+            audio.onended = function() { btn.innerText = "▶"; };
         }
 
         // --- FORMULARIO DESEO ---
         const wishForm = document.getElementById('wishForm');
         wishForm.addEventListener('submit', function(e) {
             e.preventDefault(); 
-            
             const formData = new FormData(wishForm);
-            fetch(wishForm.action, {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            }).catch(err => console.log("Enviado"));
-
+            fetch(wishForm.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } }).catch(err => console.log("Enviado"));
             const successMsg = document.getElementById('wish-success');
             successMsg.style.display = 'block';
             wishForm.reset();
-
-            setTimeout(() => {
-                successMsg.style.display = 'none';
-            }, 4000);
+            setTimeout(() => { successMsg.style.display = 'none'; }, 4000);
         });
 
-        // --- ORÁCULO ---
-        const oracleMsgs = [
-            "Eres una princesa, no aceptes menos de lo que mereces.",
-            "Tu abuela guía cada paso que das hoy.",
-            "Eres capaz de ser la mejor profesional de la salud.",
-            "Hoy brillas más que el sol, aunque el día esté gris.",
-            "Recuerda: Si hace frío, tres cobijas y un té.",
-            "Snoopy estaría orgulloso de tu sonrisa hoy.",
-            "Eres magia, eres rosa, eres luz.",
-            "Mereces un descanso. La mujer maravilla también duerme.",
-            "Tus ojos son el paisaje más lindo del universo.",
-            "Todo el esfuerzo de hoy valdrá la pena mañana.",
-            "Eres fuerte, independiente, pero está bien pedir un abrazo.",
-            "Tu cabello hoy se ve espectacular.",
-            "Cómete ese dulce, te lo mereces.",
-            "Tu corazón noble es tu mayor tesoro.",
-            "Respira. Lo estás haciendo increíble."
+        // --- ORÁCULO DIARIO (REEMPLAZA AL RANDOM) ---
+        const dailyData = [
+            {
+                title: "Sobre ser suficiente",
+                text: "Sé que a veces el mundo te pide demasiado y tú misma te exiges todavía más. Pero hoy quiero que te quites esa mochila de encima por un momento. No tienes que demostrarle nada a nadie, ni tienes que 'poder con todo' hoy. Eres valiosa simplemente por ser tú, por esa forma tan única que tienes de ver la vida, por tu sensibilidad y por ese corazón que no te cabe en el pecho. Si hoy te sientes cansada o perdida, permítete estarlo. No dejes que la prisa de los demás te robe tu paz. Aquí no hay expectativas, solo un recordatorio de que eres suficiente exactamente como eres ahora mismo."
+            },
+            {
+                title: "La belleza de lo que no se ve",
+                text: "A veces nos enfocamos tanto en lo que nos falta que olvidamos todo lo que ya somos. Tú eres una combinación increíble de fuerza y delicadeza; eres esa mujer que puede ser súper independiente y seria, pero que también guarda una ternura inmensa que solo pocos conocemos. Si hoy no te sientes bien frente al espejo o frente a tus propias metas, cierra los ojos y confía en lo que yo sé de ti: que tienes la capacidad de iluminar cualquier lugar solo con tu presencia. Tu valor no depende de un buen día o de un resultado; tu valor es constante, como el 11:11 que siempre nos encontraba."
+            },
+            {
+                title: "El derecho a no estar bien",
+                text: "Está bien no tener todas las respuestas. Está bien sentirse bajita de nota y no querer sonreírle al mundo. No te fuerces a estar 'bien' si por dentro el clima está nublado. La vida también se trata de aceptar esos días grises, de abrazar la tristeza y entender que es solo una etapa, no el final del camino. Quiero que sepas que en este rincón siempre serás bienvenida con todo y tus sombras. No tienes que fingir nada; aquí se te quiere y se te admira por tu transparencia y por esa valentía que tienes de sentir las cosas tan profundamente."
+            },
+            {
+                title: "Tu luz interior",
+                text: "Hay una frase que dice que las personas son como las estrellas: aunque a veces las nubes las tapen, su luz sigue ahí, intacta. Hoy puede que sea un día nublado para ti, pero eso no cambia el brillo que tienes adentro. Eres una mujer espectacular, llena de matices, de libros, de sueños y de una bondad que se nota en cada gesto. No permitas que un momento difícil te haga olvidar la calidad de persona que eres. Respira, descansa y recuerda que, aunque hoy no lo veas, sigues siendo la persona con los ojos más lindos y el alma más pura que he conocido."
+            },
+            {
+                title: "La calma en la tormenta",
+                text: "Si hoy sientes que todo va muy rápido y que el ruido externo no te deja escuchar tu propia voz, busca un momento de silencio para ti. Tú tienes una fortaleza interna que es admirable, esa que te ha hecho crecer y convertirte en la mujer que eres hoy. Confía en ese instinto, confía en tu proceso. No tienes que descifrar todo el futuro hoy; solo intenta estar bien en este presente. Abrígate, consiéntete con algo que te guste y recuerda que eres un refugio para muchos, pero que tú también mereces tener un lugar donde descansar el alma."
+            },
+            {
+                title: "El valor de tu sensibilidad",
+                text: "Nunca veas tu sensibilidad como una debilidad. En un mundo que a veces parece tan frío, tu capacidad de conmoverte, de cuidar los detalles y de sentir con tanta intensidad es un regalo. Sé que a veces eso hace que los golpes duelan más, pero también es lo que te permite vivir las alegrías de una forma que nadie más puede. Eres una mujer llena de magia, de esas que dejan huella sin intentarlo. Si hoy te sientes vulnerable, no te asustes; esa vulnerabilidad es parte de lo que te hace ser tan especial y tan humana."
+            }
         ];
+
         function getOracle() {
-            const el = document.getElementById('oracle-msg');
-            el.style.opacity = 0;
+            const container = document.getElementById('oracle-container');
+            const titleEl = document.getElementById('oracle-title');
+            const bodyEl = document.getElementById('oracle-body');
+            
+            // Animación de Fade
+            container.style.opacity = 0;
+
             setTimeout(() => {
-                el.innerText = oracleMsgs[Math.floor(Math.random() * oracleMsgs.length)];
-                el.style.opacity = 1;
+                // FECHA INICIO: 22 DE ENERO 2026 (Mañana)
+                const startDate = new Date(2026, 0, 22, 0, 0, 0);
+                const now = new Date();
+                
+                const diffTime = now - startDate;
+                const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+                if (diffDays < 0) {
+                    titleEl.innerText = "⏳ Aún no es tiempo";
+                    bodyEl.innerText = "El oráculo empezará a hablar mañana, 22 de Enero.";
+                } else if (diffDays >= 0 && diffDays < dailyData.length) {
+                    const msg = dailyData[diffDays];
+                    titleEl.innerText = msg.title;
+                    bodyEl.innerText = msg.text;
+                } else {
+                    const msg = dailyData[dailyData.length - 1]; // Muestra el último
+                    titleEl.innerText = "✨ Mensaje Final";
+                    bodyEl.innerText = "Ya has recibido todas las señales diarias. Aquí tienes la última para que no la olvides:\n\n" + msg.text;
+                }
+                
+                container.style.opacity = 1;
             }, 300);
         }
 
